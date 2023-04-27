@@ -44,4 +44,19 @@ describe PostRepository do
     repo.delete(4)
     expect(repo.all.length).to eq 5
   end
+
+  it 'Should update the selected post' do
+    repo = PostRepository.new
+    selected = repo.find(4)
+    selected.title = "Sandwich Update"
+    selected.content = "This is a new sandwich update"
+    selected.views = 100
+    selected.user_id = 1
+    repo.update(selected)
+    updated = repo.find(4)
+    expect(updated.title).to eq "Sandwich Update"
+    expect(updated.content).to eq "This is a new sandwich update"
+    expect(updated.views).to eq '100'
+    expect(updated.user_id).to eq '1'
+  end
 end

@@ -209,6 +209,12 @@ class PostRepository
     # params = [id]
   end
 
+  def update(post)
+    # Takes a user object and updates that user row in DB
+    # 'UPDATE posts SET title = $1, content = $2, views = $3, user_id = $4 WHERE id = $1;'
+    # params = [post.title, post.content, post.views, post.user_id]
+  end
+
 end
 ```
 
@@ -252,6 +258,17 @@ repo.delete(1)
 expect(repo.all.length)to eq # integer one less than current repo.length 
 
 # from app.rb line can run from test DB .all to check - also repo.all[int] returns error out of scope
+
+# 5. Update a user object
+repo = UserRepository.new
+user_1 = repo.find(1)
+user_1.email_address = 'updatedemailaddress@gmail.com'
+user_1.username = 'updatedusername'
+repo.update(user_1)
+updated = repo.find(1)
+expect(updated.email_address).to eq 'updatedemailaddress@gmail.com'
+expect(updated.username).to eq 'updatedusername'
+
 ```
 
 ## 7. Reload the SQL seeds before each test run

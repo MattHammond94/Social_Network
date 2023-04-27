@@ -2,7 +2,6 @@ require 'post'
 
 class PostRepository
   
-
   def create(post)
     sql = 'INSERT INTO posts(title, content, views, user_id) VALUES($1, $2, $3, $4);'
     params = [post.title, post.content, post.views, post.user_id]
@@ -41,5 +40,11 @@ class PostRepository
       posts << post
     end
     posts
+  end
+
+  def update(post)
+    sql = 'UPDATE posts SET title = $1, content = $2, views = $3, user_id = $4 WHERE id = $5;'
+    params = [post.title, post.content, post.views, post.user_id, post.id]
+    update = DatabaseConnection.exec_params(sql, params)
   end
 end
