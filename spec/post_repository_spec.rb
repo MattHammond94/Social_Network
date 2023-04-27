@@ -16,6 +16,16 @@ describe PostRepository do
     all = repo.all
     expect(all.length).to eq 8
     expect(all.first.content).to eq 'I ran out of mana so no more fire balls'
-    expect(all.last.views).to eq 4
+    expect(all.last.views).to eq '4'
+  end
+
+  it 'Should create a new post row from a post obj' do
+    repo = PostRepository.new
+    post_1 = double :post, title: 'A greeting', content: 'Hello', views: 0 , user_id: 1
+    repo.create(post_1)
+    expect(repo.all.last.title).to eq 'A greeting'
+    expect(repo.all.last.content).to eq 'Hello'
+    expect(repo.all.length).to eq 9
+    expect(repo.all.last.user_id).to eq '1'
   end
 end

@@ -244,7 +244,7 @@ repo.create(user_1)
 expect(repo.all.last.email_address).to eq 'mattymoomilk@tiscali.net'
 expect(repo.all.last.username).to eq 'MattyMooMilk'
 expect(repo.all.length) # => an integer 1 greater than our current length
-expect(repo.all.last.artist_id).to eq # => ^ same integer as previous expect line ^
+expect(repo.all.last.id).to eq # => ^ same integer as previous expect line ^
 
 # 4. Delete a user object 
 repo = UserRepository.new
