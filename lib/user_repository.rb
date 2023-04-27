@@ -38,4 +38,10 @@ class UserRepository
     user.username = found['username']
     user
   end
+
+  def update(user)
+    sql = 'UPDATE users SET email_address = $1, username = $2 WHERE id = $3;'
+    params = [user.email_address, user.username, user.id]
+    update = DatabaseConnection.exec_params(sql, params)
+  end
 end
