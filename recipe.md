@@ -135,7 +135,7 @@ end
 # (in lib/post.rb)
 
 class Post
-  attr_accessor :title, :content, :views, :user_id
+  attr_accessor :id, :title, :content, :views, :user_id
 end
 
 ```
@@ -197,8 +197,8 @@ class PostRepository
 
   def create(post_obj)
     # Adds a postobj to the posts table if post corresponds to existing user 
-    # 'INSERT INTO users(email_address, username) VALUES($1, $2);'
-    # params = [user_obj.email_address, user_obj.username]
+    # 'INSERT INTO posts(title, content, views, user_id) VALUES($1, $2, $3, $4);'
+    # params = [post_obj.title, post_obj.content, post_obj.views, post_obj.user_id]
     # No return
   end
 
