@@ -14,7 +14,6 @@ class UserRepository
     DatabaseConnection.exec_params(sql, params)
   end
 
-
   def all
     results = DatabaseConnection.exec_params('SELECT * FROM users;', [])
     users = []

@@ -51,4 +51,15 @@ describe UserRepository do
     repo.delete(4)
     expect(repo.all.length).to eq 1
   end
+
+  it 'Should correctly update the selected row when update method is called' do
+    repo = UserRepository.new
+    user_1 = repo.find(1)
+    user_1.email_address = 'updatedemailaddress@gmail.com'
+    user_1.username = 'updatedusername'
+    repo.update(user_1)
+    updated = repo.find(1)
+    expect(updated.email_address).to eq 'updatedemailaddress@gmail.com'
+    expect(updated.username).to eq 'updatedusername'
+  end
 end
