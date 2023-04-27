@@ -15,9 +15,19 @@ class PostRepository
     DatabaseConnection.exec_params(sql, params)
   end
 
-  # def find
-    
-  # end
+  def find(id)
+    sql = 'SELECT * FROM posts WHERE id = $1;'
+    params = [id]
+    selected = DatabaseConnection.exec_params(sql, params)
+    found = selected[0]
+    post = Post.new
+    post.id = found['id']
+    post.title = found['title']
+    post.content = found['content']
+    post.views = found['views']
+    post.user_id = found['user_id']
+    post
+  end
 
   def all
     results = DatabaseConnection.exec_params('SELECT * FROM posts;', [])

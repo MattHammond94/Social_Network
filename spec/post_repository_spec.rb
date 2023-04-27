@@ -19,6 +19,14 @@ describe PostRepository do
     expect(all.last.views).to eq '4'
   end
 
+  it 'Should return the values of for the method calls on the selected row' do
+    repo = PostRepository.new
+    post = repo.find(2)
+    expect(post.title).to eq 'Had another bad day'
+    expect(post.content).to eq 'Took a bath - water extinguishes fire. What was I thinking?'
+    expect(post.id).to eq '2'
+  end
+
   it 'Should create a new post row from a post obj' do
     repo = PostRepository.new
     post_1 = double :post, title: 'A greeting', content: 'Hello', views: 0, user_id: 1
