@@ -37,7 +37,6 @@ describe UserRepository do
   it 'Should take a user object as an arg and add it to the DB as a row' do
     repo = UserRepository.new
     user_1 = User.new
-    # user_1.id = '5'
     user_1.email_address = 'mattymoomilk@tiscali.net'
     user_1.username = 'MattyMooMilk'
     repo.create(user_1)
