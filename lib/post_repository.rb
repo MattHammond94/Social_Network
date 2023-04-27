@@ -15,9 +15,12 @@ class PostRepository
     DatabaseConnection.exec_params(sql, params)
   end
 
+  # def find
+    
+  # end
+
   def all
     results = DatabaseConnection.exec_params('SELECT * FROM posts;', [])
-
     posts = []
     results.each do |row|
       post = Post.new

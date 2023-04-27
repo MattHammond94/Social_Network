@@ -36,9 +36,7 @@ describe UserRepository do
 
   it 'Should take a user object as an arg and add it to the DB as a row' do
     repo = UserRepository.new
-    user_1 = User.new
-    user_1.email_address = 'mattymoomilk@tiscali.net'
-    user_1.username = 'MattyMooMilk'
+    user_1 = double :user, email_address: 'mattymoomilk@tiscali.net', username: 'MattyMooMilk'
     repo.create(user_1)
     expect(repo.all.last.email_address).to eq 'mattymoomilk@tiscali.net'
     expect(repo.all.last.username).to eq 'MattyMooMilk'

@@ -2,7 +2,7 @@ require 'post_repository'
 
 describe PostRepository do
   def reset_post_table
-    seed_sql = File.read('spec/post_seeds.sql')
+    seed_sql = File.read('spec/social_network_seeds.sql')
     connection = PG.connect({ host: '127.0.0.1', dbname: 'social_network_test' })
     connection.exec(seed_sql)
   end
@@ -21,7 +21,7 @@ describe PostRepository do
 
   it 'Should create a new post row from a post obj' do
     repo = PostRepository.new
-    post_1 = double :post, title: 'A greeting', content: 'Hello', views: 0 , user_id: 1
+    post_1 = double :post, title: 'A greeting', content: 'Hello', views: 0, user_id: 1
     repo.create(post_1)
     expect(repo.all.last.title).to eq 'A greeting'
     expect(repo.all.last.content).to eq 'Hello'
