@@ -9,6 +9,12 @@ class PostRepository
     DatabaseConnection.exec_params(sql, params)
   end
 
+  def delete(id)
+    sql = 'DELETE FROM posts WHERE id = $1;'
+    params = [id]
+    DatabaseConnection.exec_params(sql, params)
+  end
+
   def all
     results = DatabaseConnection.exec_params('SELECT * FROM posts;', [])
 

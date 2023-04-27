@@ -45,4 +45,12 @@ describe UserRepository do
     expect(repo.all.length).to eq 5
     expect(repo.all.last.id).to eq '5'
   end
+
+  it 'Should remove the row from DB that corresponds with id passed to delete as arg' do
+    repo = UserRepository.new
+    repo.delete(1)
+    repo.delete(3)
+    repo.delete(4)
+    expect(repo.all.length).to eq 1
+  end
 end

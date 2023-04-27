@@ -8,9 +8,15 @@ class UserRepository
     DatabaseConnection.exec_params(sql, params)
   end
 
+  def delete(id)
+    sql = 'DELETE FROM users WHERE id = $1;'
+    params = [id]
+    DatabaseConnection.exec_params(sql, params)
+  end
+
+
   def all
     results = DatabaseConnection.exec_params('SELECT * FROM users;', [])
-
     users = []
     results.each do |item|
       user = User.new

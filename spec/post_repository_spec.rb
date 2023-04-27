@@ -28,4 +28,12 @@ describe PostRepository do
     expect(repo.all.length).to eq 9
     expect(repo.all.last.user_id).to eq '1'
   end
+
+  it 'Should remove the row from DB that corresponds with id passed to delete method as arg' do
+    repo = PostRepository.new
+    repo.delete(1)
+    repo.delete(3)
+    repo.delete(4)
+    expect(repo.all.length).to eq 5
+  end
 end
