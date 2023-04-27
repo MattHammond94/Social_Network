@@ -59,4 +59,17 @@ describe PostRepository do
     expect(updated.views).to eq '100'
     expect(updated.user_id).to eq '1'
   end
+
+  it 'Should only update specific values' do
+    repo = PostRepository.new
+    selected = repo.find(2)
+    selected.title = "Updated title"
+    selected.user_id = 3
+    repo.update(selected)
+    updated = repo.find(2)
+    expect(updated.title).to eq "Updated title"
+    expect(updated.content).to eq "Took a bath - water extinguishes fire. What was I thinking?"
+    expect(updated.views).to eq '4'
+    expect(updated.user_id).to eq '3'
+  end
 end
