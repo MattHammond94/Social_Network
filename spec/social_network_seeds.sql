@@ -1,5 +1,5 @@
-TRUNCATE TABLE users RESTART IDENTITY;
-TRUNCATE TABLE posts RESTART IDENTITY;
+TRUNCATE TABLE users RESTART IDENTITY CASCADE;
+TRUNCATE TABLE posts RESTART IDENTITY CASCADE;
 
 INSERT INTO users (email_address, username) VALUES('obsidian_fire_mage69@gmail.com', 'GreatBallsOfFire');
 INSERT INTO users (email_address, username) VALUES('pitbul420@gmail.com', 'Mr.Wolrdwide');

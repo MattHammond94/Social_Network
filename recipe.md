@@ -242,7 +242,7 @@ user_1.email_address = 'mattymoomilk@tiscali.net'
 user_1.username = 'MattyMooMilk'
 repo.create(user_1)
 expect(repo.all.last.email_address).to eq 'mattymoomilk@tiscali.net'
-expect(repo.all.last.release_year).to eq 'MattyMooMilk'
+expect(repo.all.last.username).to eq 'MattyMooMilk'
 expect(repo.all.length) # => an integer 1 greater than our current length
 expect(repo.all.last.artist_id).to eq # => ^ same integer as previous expect line ^
 

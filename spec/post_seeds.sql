@@ -1,4 +1,4 @@
-TRUNCATE TABLE posts RESTART IDENTITY;
+TRUNCATE TABLE posts RESTART IDENTITY CASCADE;
 
 INSERT INTO posts (title, content, views, user_id) VALUES('Had a really bad day', 'I ran out of mana so no more fire balls', 100, 1);
 INSERT INTO posts (title, content, views, user_id) VALUES('Had another bad day', 'Took a bath - water extinguishes fire. What was I thinking?', 4, 1);
