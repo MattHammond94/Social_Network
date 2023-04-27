@@ -195,14 +195,18 @@ class PostRepository
     
   end
 
+  def create(post_obj)
+    # Adds a postobj to the posts table if post corresponds to existing user 
+    # 'INSERT INTO users(email_address, username) VALUES($1, $2);'
+    # params = [user_obj.email_address, user_obj.username]
+    # No return
+  end
 
-
- # Should only removes an object/row from the posts table in DB
+ # Should only remove an object/row from the posts table in DB
   def delete(id)
     # takes an id as arg and removes a row from the database with that arg id
-    # 'DELETE FROM users WHERE id = $1;'
+    # 'DELETE FROM posts WHERE id = $1;'
     # params = [id]
-    # No return
   end
 
 end
