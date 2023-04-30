@@ -5,14 +5,7 @@ require_relative 'lib/user_repository'
 DatabaseConnection.connect('social_network')
 
 posts_repo = PostRepository.new 
-# selected = repo.find(4)
-# puts selected.title
-# puts selected.content
-
 repo = UserRepository.new
-# selected = repo.find(2)
-# puts selected.username
-# puts selected.id
 
 user = User.new 
 user.email_address = 'a_test_email.gmail.com'
@@ -36,4 +29,3 @@ end
 all_posts.each do |user|
   puts user.content
 end
-

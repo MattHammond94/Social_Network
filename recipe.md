@@ -1,4 +1,4 @@
-# Recipes Model and Repository Classes Design Recipe
+# Social Network Model and Repository Classes Design Recipe
 
 ## 1. Design and Create the table
 
