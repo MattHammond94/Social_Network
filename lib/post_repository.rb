@@ -33,6 +33,7 @@ class PostRepository
     posts = []
     results.each do |row|
       post = Post.new
+      post.id = row['id']
       post.title = row['title']
       post.content = row['content']
       post.views = row['views']
